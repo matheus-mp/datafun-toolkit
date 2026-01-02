@@ -28,18 +28,32 @@ jobs:
     steps:
       # === ASSEMBLE ===
 
-      - name: A1) Checkout this repository with full history
+      - name: A1) Checkout this repository with full history and tags
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0 # Full history for tags
+          fetch-depth: 0
+          fetch-tags: true
+          ref: ${{ github.ref }}
+
+      - name: A1b) Show git describe
+        shell: bash
+        run: |
+          set -e
+          git --version
+          git status --porcelain
+          git rev-parse HEAD
+          git show -s --format=%D HEAD
+          git describe --tags --always --dirty
 
       - name: A2) Install uv (with caching)
         uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
 
-      - name: A3) Pin Python version 3.12
-        run: uv python pin 3.12
+      - name: A3) Setup Python 3.12
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
 
       - name: A4) Display versions
         run: |
@@ -117,19 +131,18 @@ jobs:
           prerelease: false
           make_latest: true
 
-      - name: D6) Publish to PyPI (Trusted Publishing)
-        uses:
-          pypa/gh-action-pypi-publish@release/v1
+      - name: D7) Publish to PyPI (Trusted Publishing)
+        uses: pypa/gh-action-pypi-publish@release/v1
 
       # === DOCS (MIKE VERSIONED DOCS) ===
 
-      - name: D7) Configure git identity for mike
+      - name: D8) Configure git identity for mike
         if: hashFiles('mkdocs.yml', 'mkdocs.yaml') != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: D8) Deploy docs for this version and update latest alias
+      - name: D9) Deploy docs for this version and update latest alias
         if: hashFiles('mkdocs.yml', 'mkdocs.yaml') != ''
         run: |
           set -e
@@ -138,6 +151,6 @@ jobs:
           uv run mike deploy --push --update-aliases "$VERSION" latest
           uv run mike set-default --push latest
 
-      - name: D9) Show mike versions (after)
+      - name: D10) Show mike versions (after)
         if: hashFiles('mkdocs.yml', 'mkdocs.yaml') != ''
         run: uv run mike list
