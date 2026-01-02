@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.debugpy",
+    "charliermarsh.ruff",
+    "ms-pyright.pyright",
+    "tamasfe.even-better-toml",
+    "redhat.vscode-yaml",
+    "editorconfig.editorconfig",
+    "github.vscode-github-actions",
+    "fill-labs.dependi",
+    "yzhang.markdown-all-in-one"
+  ],
+  "unwantedRecommendations": []
+}

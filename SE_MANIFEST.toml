@@ -1,0 +1,51 @@
+schema = "se-manifest-1"
+
+[repo]
+name = "datafun-toolkit"
+org = "denisecase"
+kind = "software"
+status = "academic"
+since = "2026"
+summary = "Privacy-safe diagnostics, paths, and logging helpers for analytics projects."
+
+[layer]
+space = "Data Analytics"
+role = "post-secondary-education"
+
+[depends]
+required = []
+optional = []
+
+[provides]
+artifacts = [
+    "ANNOTATIONS.md",
+    "CITATION.cff",
+    "INSTRUCTORS.md",
+    "LICENSE",
+    "README.md",
+    "SE_MANIFEST.toml",
+]
+
+[scope]
+includes = [
+    "privacy-safe run context header (OS, shell, Python version, repo-relative cwd)",
+    "centralized logging helper with stdlib logging API (debug/info/warning/error)",
+    "project root discovery for robust repo-relative paths",
+    "sanitized path rendering for logs and messages",
+    "professional developer defaults (uv, src layout, CI-friendly)",
+    "CI/CD integration via GitHub Actions",
+    "CI/CD ABCD ordering to assist with quality gate ordering",
+]
+excludes = [
+    "domain content (e.g., anomaly detection, EDA, ML)",
+    "data ingestion pipelines or dataset-specific logic",
+    "collection of personally identifying information (PII)",
+]
+
+[citation]
+cff = "CITATION.cff"
+preferred = "repo"
+bib_hint = "case2026-datafun-toolkit"
+
+[traceability]
+identifier_map = "none"

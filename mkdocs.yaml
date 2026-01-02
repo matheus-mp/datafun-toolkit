@@ -1,0 +1,71 @@
+# REQ.PROJECT: MkDocs configuration file (mkdocs.yaml)
+#      to automatically build an assoociated website
+#      for professional project documentation and communication.
+#      Requires:
+#         1. this file in the root of your project repository
+#         2. docs/ folder with markdown files (.md) for content
+#         3. GitHub Actions workflow to build and deploy site (in .github/workflows/)
+#
+# WHY: This data file provides the site structure and settings
+
+
+# CUSTOM: Change "YOUR NAME" to your actual name
+site_name: "Sales Anomaly Detection - YOUR NAME"
+site_description: Project documentation.
+docs_dir: docs
+site_dir: site
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/denisecase/datafun-toolkit
+  languages:
+    - name: English
+      code: en
+      default: true
+    - name: Français
+      code: fr
+    - name: Ελληνικά
+      code: el
+
+# WHY: Material theme is industry standard, well-documented
+theme:
+  name: material
+  palette:
+    primary: blue  # CUSTOM: try indigo, green, orange, purple, pink, brown, grey
+    accent: red    # CUSTOM: try blue, green, orange, purple, pink, brown, grey
+
+# REQ: These plugins enable CSV charts
+plugins:
+  - search
+  - charts
+  - i18n:
+      default_language: en
+      languages:
+        en:
+          name: English
+          build: true
+        fr:
+          name: Français
+          build: false
+        el:
+          name: Ελληνικά
+          build: false
+
+# REQ: These extensions enable vegalite fence
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: vegalite
+          class: vegalite
+          format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
+
+# REQ: Vega libraries loaded from CDN (no local install)
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/vega@5
+  - https://cdn.jsdelivr.net/npm/vega-lite@5
+  - https://cdn.jsdelivr.net/npm/vega-embed@6
+
+nav:
+  - Site: index.md
+  - Results: results.md

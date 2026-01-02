@@ -1,0 +1,200 @@
+# REQ.PYTHON: Python projects MUST include pyproject.toml as the single source of truth.
+# WHY: Centralizes project metadata and configuration to ensure reproducibility.
+
+[project]
+name = "datafun-toolkit" # CUSTOM: Package distribution name (use lowercase and dashes).
+dynamic = ["version"]  # WHY: version managed by build system (setuptools_scm).
+description = "Student-friendly, privacy-safe diagnostics, paths, and logging helpers for analytics projects."
+keywords = ["data", "analytics", "logging", "diagnostics", "education", "toolkit"]
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "Denise M. Case" }]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+]
+
+# REQ.DEPS: Keep runtime dependencies minimal.
+# OBS: This toolkit uses only the Python standard library.
+dependencies = []
+
+[project.optional-dependencies]
+# WHY: Optional dependency groups keep the core install clean and focused.
+
+dev = [
+    "bandit>=1.7.5",
+    "deptry>=0.12.0",
+    "packaging>=23.1", # WHY: used by validate-pyproject.
+    "pre-commit>=4",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "pyright>=1.1",
+    "ruff>=0.9",
+    "twine>=6.2.0",
+    "validate-pyproject>=0.11.0",
+]
+
+docs = [
+    "mike>=2.1.3",
+    "mkdocs>=1.5",
+    "mkdocs-material>=9",
+    "mkdocstrings[python]>=1.0.0",
+]
+
+[project.urls]
+# WHY: Canonical project links used by tooling and documentation.
+# CUSTOM: Replace with your repo values.
+Documentation = "https://denisecase.github.io/datafun-toolkit/"
+Issues = "https://github.com/denisecase/datafun-toolkit/issues"
+Repository = "https://github.com/denisecase/datafun-toolkit"
+
+[tool.deptry.per_rule_ignores]
+DEP002 = [
+    # === DEV TOOLING (not required at runtime) ===
+    "bandit",
+    "deptry",
+    "packaging",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "pyright",
+    "ruff",
+    "twine",
+    "validate-pyproject",
+
+    # === DOCUMENTATION TOOLING (not required at runtime) ===
+    "mike",
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocstrings[python]",
+    "mkdocstrings",         # WHY: Needed for [python] extra (above).
+]
+
+
+[tool.pyright]
+# WHY: Static type checking for early error detection and clearer interfaces.
+typeCheckingMode = "strict"
+include = ["src"]
+extraPaths = ["src"]
+pythonVersion = "3.12"
+reportMissingImports = "warning"
+reportPrivateUsage = "none"
+useLibraryCodeForTypes = false
+venv = ".venv"
+venvPath = "."
+
+[tool.pytest.ini_options]
+# WHY: Ensure tests are discoverable and coverage is visible.
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = "-q --cov=datafun_toolkit --cov-report=term-missing"
+
+[tool.ruff]
+# WHY: Ruff provides fast linting and formatting with deterministic output.
+exclude = [
+    ".eggs",
+    "*.egg-info",
+    ".ruff_cache",
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+    "site",
+]
+fix = true
+line-length = 100
+preview = false
+target-version = "py312"
+unsafe-fixes = false
+
+[tool.ruff.format]
+# WHY: Formatter choices should be stable to keep diffs small and predictable.
+line-ending = "lf"
+quote-style = "preserve"
+
+[tool.ruff.lint]
+# WHY: Professional baseline rules without requiring advanced refactors.
+select = [
+    "E",   # Basic syntax and structural correctness
+    "F",   # Undefined names and unused imports
+    "W",   # Warnings that catch easy issues early
+    "I",   # Deterministic import ordering
+    "UP",  # Modern Python constructs
+    "B",   # Common bug patterns
+    "C4",  # Comprehension correctness and clarity
+    "SIM", # Simplify obvious complexity
+    "RET", # Return practices
+    "PTH", # Prefer pathlib patterns
+
+    "D", # Docstring standards (see convention below)
+    "S", # Security checks (with deliberate exceptions)
+]
+
+ignore = [
+    "E501", # Line length handled by formatter
+    "D203", # Conflicts with D211
+    "D212", # Forces multi-line docstring summary to start on same line
+    "D213", # Choose one docstring summary placement style
+    "D413", # Reduce section-format noise unless required
+    "S101", # Allow assert (tests + internal invariants)
+    "W291", # Trailing whitespace - handled by formatter
+    "W292", # No newline at end of file - handled by formatter
+    "W293", # Blank lines contain whitespace - handled by formatter
+
+]
+
+[tool.ruff.lint.isort]
+# WHY: Import ordering must be deterministic to keep diffs readable.
+force-sort-within-sections = true
+
+[tool.ruff.lint.per-file-ignores]
+# WHY: Narrow exceptions belong here; do not weaken global rules broadly.
+"src/**/__init__.py" = ["D104", "F401"]
+"src/**/_version.py" = ["ALL"]          # WHY: Auto-generated by setuptools_scm; ignore all issues.
+"tests/**/*.py" = ["D", "S101"]
+"src/**/py.typed" = ["ALL"]             # WHY: py.typed files are not valid Python syntax.
+
+[tool.ruff.lint.pydocstyle]
+# WHY: Choose one docstring convention project-wide.
+convention = "google"
+
+# === BUILD SYSTEM ===
+
+# REQ.BUILD:
+# - `build-backend` must be a build backend (setuptools or hatchling).
+# - `setuptools_scm` is a versioning plugin, not the build backend.
+
+[build-system]
+# WHY: Build system needed to create distributable packages.
+# CUSTOM: Using scm for dynamic version management.
+requires = [
+    "setuptools>=80",
+    "setuptools_scm>=9.2.2",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true # WHY: Ensure non-code files are included in distributions.
+package-dir = {"" = "src"} # WHY: src-layout keeps code separate from config and docs.
+
+[tool.setuptools.package-data]
+"datafun_toolkit" = ["py.typed", "*.yaml"]
+
+[tool.setuptools.packages.find]
+where = ["src"] # WHY: Explicitly define package discovery location.
+
+[tool.setuptools_scm]
+fallback_version = "0.0.1"
+local_scheme = "no-local-version"
+version_file = "src/datafun_toolkit/_version.py"
+version_scheme = "guess-next-dev"

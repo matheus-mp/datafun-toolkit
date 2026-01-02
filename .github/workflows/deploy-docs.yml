@@ -1,0 +1,78 @@
+# .github/workflows/deploy-docs.yml
+name: Docs Deploy (MkDocs Python)
+
+# WHY: Build and deploy MkDocs site to GitHub Pages from Actions artifacts.
+# REQ: Repo Settings -> Pages -> Build and deployment -> Source: GitHub Actions
+
+on:
+  push:
+    branches: [main] # WHY: Deploy on pushes to main branch.
+  workflow_dispatch: # WHY: Allow manual triggering from Actions tab.
+
+permissions: # WHY: Use least privileges required.
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency: # WHY: Ensure only one deployment runs at a time.
+  group: "pages"
+  cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: "1" # WHY: Real-time logging.
+  PYTHONIOENCODING: "utf-8" # WHY: Ensure UTF-8 encoding so docs with international characters work.
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest # WHY: Use latest Ubuntu runner for compatibility.
+    timeout-minutes: 30 # WHY: Prevent hanging jobs.
+
+    steps:
+      # === ASSEMBLE ===
+
+      - name: A1) Checkout this repository
+        uses: actions/checkout@v6
+
+      - name: A2) Install uv (with caching)
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+
+      - name: A3) Pin Python version 3.12
+        run: uv python pin 3.12
+
+      - name: A4) Sync to install docs dependencies
+        run: uv sync --extra docs --upgrade
+
+      - name: A5) Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # === BUILD ===
+
+      - name: B1) Fail fast if no MkDocs configuration
+        run: |
+          if [ -f "mkdocs.yml" ] || [ -f "mkdocs.yaml" ]; then
+            echo "MkDocs configuration found. Proceeding."
+          else
+            echo "ERROR: mkdocs.yml not found."
+            echo "If you do NOT want documentation deployment,"
+            echo "delete .github/workflows/deploy-docs.yml (or add mkdocs.yml)."
+            exit 1
+          fi
+
+      # === DEPLOY ===
+
+      - name: D1) Build docs using mkdocs --strict
+        run: uv run mkdocs build --strict
+
+      - name: D2) Upload Pages artifact (/site)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: D3) Deploy to GitHub Pages (gh-pages)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: site

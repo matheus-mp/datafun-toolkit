@@ -1,0 +1,31 @@
+# REQ.UNIVERSAL: Professional open projects SHOULD include CITATION.cff.
+# WHY: Support correct citation and attribution.
+# ALT: Internal or private repositories may omit citation metadata; remove or modify this file as appropriate.
+# CUSTOM: Update author, repository, license, and keyword fields to reflect project specifics.
+# USAGE: Update fields below; see https://citation-file-format.github.io/ for details.
+
+cff-version: "1.2.0"
+type: software
+
+title: "Data Analytics Fundamentals Toolkit"
+version: "0.9.0"
+date-released: "2026-01-02"
+
+authors:
+  - family-names: Case
+    given-names: Denise M.
+    orcid: "https://orcid.org/0000-0001-6165-7389"
+
+repository-code: "https://github.com/denisecase/datafun-toolkit"
+url: "https://github.com/denisecase/datafun-toolkit"
+license: MIT
+
+keywords:
+  - data analytics
+  - professional practice
+
+
+abstract: >
+  Educational .
+
+message: "If using this project, please cite it as described in this file."
