@@ -41,7 +41,7 @@ git tag -d v0.9.0
 git push origin :refs/tags/v0.9.0
 git tag v0.9.0 -m "0.9.0"
 git push origin v0.9.0
-
+```
 
 [Unreleased]: https://github.com/denisecase/datafun-toolkit/compare/v0.9.0...HEAD
 [0.9.0]: https://github.com/denisecase/datafun-toolkit/releases/tag/v0.9.0

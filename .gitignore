@@ -90,6 +90,9 @@ yarn-error.log*
 .venv/
 venv/
 
+# WHY: Python version when using scm
+src/datafun_toolkit/_version.py
+
 # WHY: Python bytecode is generated.
 __pycache__/
 *.pyc
