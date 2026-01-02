@@ -4,7 +4,7 @@
 [project]
 name = "datafun-toolkit" # CUSTOM: Package distribution name (use lowercase and dashes).
 dynamic = ["version"]  # WHY: version managed by build system (setuptools_scm).
-description = "Student-friendly, privacy-safe diagnostics, paths, and logging helpers for analytics projects."
+description = "Privacy-safe diagnostics, paths, and logging helpers for analytics projects."
 keywords = ["data", "analytics", "logging", "diagnostics", "education", "toolkit"]
 license-files = ["LICENSE"]
 readme = "README.md"

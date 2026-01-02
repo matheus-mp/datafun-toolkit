@@ -76,7 +76,7 @@ def main() -> None:
     project_root: Path = find_project_root()
 
     # OBS: Demonstrate sanitization using a path we always have.
-    # This avoids hard-coded paths that may not exist on student machines.
+    # This avoids hard-coded paths that may not exist on all machines.
     current_dir: Path = Path.cwd()
     relative_path: str = safe_relpath_str(current_dir, project_root)
 

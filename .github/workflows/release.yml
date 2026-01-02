@@ -35,18 +35,6 @@ jobs:
           fetch-tags: true
           ref: ${{ github.ref }}
 
-      - name: A1b) Diagnose git state (tag visibility)
-        shell: bash
-        run: |
-          set -e
-          echo "GITHUB_REF=${GITHUB_REF}"
-          echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
-          echo "GITHUB_SHA=${GITHUB_SHA}"
-          git rev-parse HEAD
-          git show -s --format=%D HEAD
-          git tag --points-at HEAD || true
-          git describe --tags --always --dirty || true
-
       - name: A2) Install uv (with caching)
         uses: astral-sh/setup-uv@v7
         with:

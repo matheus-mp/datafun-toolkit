@@ -17,8 +17,8 @@ It supports common needs such as:
 
 ## Who This Is For
 
-- Students learning Python for data analytics
-- Instructors grading and debugging student work
+- Those learning Python for data analytics
+- Debugging
 - Analytics projects that need lightweight diagnostics
 - CI / GitHub Actions environments
 

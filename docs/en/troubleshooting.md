@@ -16,7 +16,7 @@ WHY:
 This toolkit intentionally sanitizes output.
 
 WHY:
-- Protect student privacy
+- Protect privacy
 - Make logs safe to share publicly
 - Reduce noise in grading and debugging
 
@@ -35,11 +35,3 @@ No.
 OBS:
 - All functions run locally and return strings only.
 - No network calls, telemetry, or persistent identifiers are used.
-
-## Should students modify this package?
-
-No.
-
-WHY:
-- This toolkit is intended to be imported as-is.
-- Students should focus on their project code, not infrastructure utilities.

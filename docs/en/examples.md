@@ -48,7 +48,7 @@ OBS:
 Use it when you want:
 - predictable logging output
 - CI-safe diagnostics
-- consistent behavior across student machines
+- consistent behavior across different machines
 
 Do not use it for:
 - performance benchmarking

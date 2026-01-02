@@ -86,7 +86,7 @@ GitHub actions workflows:
 
 ### Diagnostics provided
 
-- Shell differences explain many student issues
+- Shell differences explain many issues
 - OS/version visibility helps with debugging
 - Uses heuristics only (privacy-safe)
 
