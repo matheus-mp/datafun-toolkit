@@ -34,6 +34,14 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
   - **PATCH** – clarifications, docs, tooling
 - Versions are driven by git tags via `setuptools_scm`. Tag `vX.Y.Z` to release.
 - Docs are deployed per version tag and aliased to **latest**.
+- Sample commands:
+
+```shell
+git tag -d v0.9.0
+git push origin :refs/tags/v0.9.0
+git tag v0.9.0 -m "0.9.0"
+git push origin v0.9.0
+
 
 [Unreleased]: https://github.com/denisecase/datafun-toolkit/compare/v0.9.0...HEAD
 [0.9.0]: https://github.com/denisecase/datafun-toolkit/releases/tag/v0.9.0

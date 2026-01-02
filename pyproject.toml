@@ -199,4 +199,3 @@ where = ["src"] # WHY: Explicitly define package discovery location.
 fallback_version = "0.0.1"
 local_scheme = "no-local-version"
 version_file = "src/datafun_toolkit/_version.py"
-version_scheme = "guess-next-dev"
