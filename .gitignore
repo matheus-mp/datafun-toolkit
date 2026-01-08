@@ -1,15 +1,22 @@
+# ============================================================
+# .gitignore (Keep unnecessary files out of the repository)
+# ============================================================
+
 # REQ.UNIVERSAL: All professional GitHub project repositories MUST include .gitignore.
 # WHY: Prevent committing generated artifacts, local state, secrets, and OS-specific files.
 # ALT: Repository may customize ignores, but MUST preserve universal safety rules.
-# CUSTOM: Logs may be temporarily committed for verification; keep ignored for production and security.
+# CUSTOM: Logs may be temporarily committed for verification; keep ignored for
+# production use and security.
+
 
 # === Universal (all projects, all languages) ===
 
 # WHY: Logs are useful during debugging and verification.
-# ALT: Uncomment temporarily if logs must be inspected or validated.
-# *.log
-# logs/
+# ALT: Comment if logs must be inspected or validated.
+*.log
+logs/
 PRIVATE_NOTES.md
+PRIVATE-NOTES.md
 
 # WHY: Temporary and swap files are machine-local noise and create meaningless diffs.
 *.swo
@@ -20,12 +27,12 @@ PRIVATE_NOTES.md
 # === VS Code (special case) ===
 
 # WHY: Ignore editor state while allowing a shared baseline configuration.
-.vscode/*
+.vscode/
 
-# WHY: Commit baseline configuration files for consistent development experience.
+# WHY: Commit recommended extensions (opt-in) for consistent development experience.
+# NOTE: Share recommendations, not personal editor styles or preferences.
 !.vscode/extensions.json
 !.vscode/settings.json
-# ALT: Commit .vscode/tasks.json only if tasks are essential to the workflow.
 
 # === OS-specific files (macOS / Windows) ===
 
@@ -64,31 +71,13 @@ site/
 # WHY: Generic caches are machine-local and should not be tracked.
 .cache/
 
-# === Go ===
-
-# WHY: Go build outputs are generated artifacts.
-*.exe
-*.out
-*.test
-
-# WHY: Go workspace files are developer-environment specific.
-go.work
-go.work.sum
-
-# === Node / JavaScript ===
-
-# WHY: Dependencies and tool logs are generated and should not be tracked.
-node_modules/
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
 # === Python ===
 
 # WHY: Virtual environments are machine-local and reproducible.
 .venv/
 venv/
+
+# REQ.PYTHON: Do NOT git ignore uv.lock. Commit it and use it in CI/CD pipelines.
 
 # WHY: Python version when using scm
 src/datafun_toolkit/_version.py
@@ -118,8 +107,3 @@ dist/
 
 # WHY: Notebook checkpoint state is generated.
 .ipynb_checkpoints/
-
-# === Rust ===
-
-# WHY: Rust build output is generated.
-target/

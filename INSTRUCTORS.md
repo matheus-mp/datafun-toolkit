@@ -32,7 +32,6 @@ This repository **includes additional features** that many project repos will NO
 - CI enforcing formatting, linting, typing, and tests
 - Pre-commit quality gates
 - Typed package marker (`py.typed`)
-- Pytest script (`tools/run_pytest.py`)
 
 ## Adapting
 
@@ -68,7 +67,6 @@ GitHub actions workflows:
 - `deploy-docs.yml` - GitHub Pages build (provides the optional project documentation)
 - `release.yml` - PyPI and versioned docs (advanced)
 
-
 ## Design Notes
 
 ### Logging is introduced early
@@ -89,7 +87,6 @@ GitHub actions workflows:
 - Shell differences explain many issues
 - OS/version visibility helps with debugging
 - Uses heuristics only (privacy-safe)
-
 
 ## Signals and Interpretation
 
@@ -123,9 +120,9 @@ Often indicates:
 - Solution: run the following commands and fix issues until all checks pass.
 
 ```shell
-git add .
+git add -A
 uv run pre-commit run --all-files
-git add .
+git add -A
 ```
 
 ### Paths look absolute

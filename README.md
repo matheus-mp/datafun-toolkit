@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
 ## Developer Setup
 
-Tools:
+Install tools:
 
 - git
 - uv
@@ -62,6 +62,8 @@ One-time setup:
 uv self update
 uv python pin 3.12
 uv sync --extra dev --extra docs --upgrade
+uvx pre-commit install
+uvx pre-commit run --all-files
 ```
 
 Before starting work:
@@ -73,15 +75,13 @@ git pull
 After working, run checks:
 
 ```shell
-git add .
-uv run ruff check .
+git add -A
 uv run ruff format .
+uv run ruff check . --fix
+uv run pytest --cov=src --cov-report=term-missing
 uv run deptry .
-uv run pyright
-uv run pytest
 uv run bandit -c pyproject.toml -r src
-uv run pre-commit run --all-files
-git add .
+uv run validate-pyproject pyproject.toml
 ```
 
 Build and serve docs:
@@ -89,6 +89,14 @@ Build and serve docs:
 ```shell
 uv run mkdocs build --strict
 uv run mkdocs serve
+```
+
+Save progress:
+
+```shell
+git add -A
+git commit -m "update"
+git push -u origin main
 ```
 
 ## Annotations
