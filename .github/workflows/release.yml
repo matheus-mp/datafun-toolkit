@@ -73,11 +73,6 @@ jobs:
       - name: B5) Deptry (dependency check)
         run: uvx deptry .
 
-        # === COVERAGE AND TESTS ===
-
-      - name: C1) Pytest (wrapper, safe when no tests)
-        run: uv run python tools/run_pytest.py
-
       # === DEPLOY  (BUILD, RELEASE, DOCS, PACKAGE) ===
 
       - name: D1) Extract plain version from tag (no leading 'v')

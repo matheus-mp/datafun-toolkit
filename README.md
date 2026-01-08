@@ -4,8 +4,8 @@
 [![Latest Release](https://img.shields.io/github/v/release/denisecase/datafun-toolkit)](https://github.com/denisecase/datafun-toolkit/releases)
 [![Docs](https://img.shields.io/badge/docs-live-blue)](https://denisecase.github.io/datafun-toolkit/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/MIT)
-[![CI](https://github.com/denisecase/datafun-toolkit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/denisecase/datafun-toolkit/actions/workflows/ci.yml)
-[![Deploy-Docs](https://github.com/denisecase/datafun-toolkit/actions/workflows/deploy-docs.yml/badge.svg?branch=main)](https://github.com/denisecase/datafun-toolkit/actions/workflows/deploy-docs.yml)
+[![CI](https://github.com/denisecase/datafun-toolkit/actions/workflows/ci-python-mkdocs.yml/badge.svg?branch=main)](https://github.com/denisecase/datafun-toolkit/actions/workflows/ci-python-mkdocs.yml)
+[![Deploy-Docs](https://github.com/denisecase/datafun-toolkit/actions/workflows/deploy-mkdocs.yml/badge.svg?branch=main)](https://github.com/denisecase/datafun-toolkit/actions/workflows/deploy-mkdocs.yml)
 [![Check Links](https://github.com/denisecase/datafun-toolkit/actions/workflows/links.yml/badge.svg)](https://github.com/denisecase/datafun-toolkit/actions/workflows/links.yml)
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/denisecase/datafun-toolkit/security/dependabot)
 

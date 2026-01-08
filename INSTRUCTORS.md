@@ -63,8 +63,8 @@ If pre-commit passes, the GitHub actions CD/CD should pass.
 
 GitHub actions workflows:
 
-- `ci.yml` - validation only (should check but not mutate code)
-- `deploy-docs.yml` - GitHub Pages build (provides the optional project documentation)
+- `ci-python-mkdocs.yml` - validation only (should check but not mutate code)
+- `deploy-mkdocs.yml` - GitHub Pages build (provides the optional project documentation)
 - `release.yml` - PyPI and versioned docs (advanced)
 
 ## Design Notes
