@@ -1,22 +1,33 @@
+# ============================================================
+# pyproject.toml (Python, MkDocs, PyPi project configuration)
+# ============================================================
+# VARIANT: python-mkdocs-pypi
+# SOURCE: https://github.com/denisecase/templates
+# Includes scm and mike for versioning.
+
 # REQ.PYTHON: Python projects MUST include pyproject.toml as the single source of truth.
-# WHY: Centralizes project metadata and configuration to ensure reproducibility.
+# WHY: Centralizes project configuration.
 
 [project]
 name = "datafun-toolkit" # CUSTOM: Package distribution name (use lowercase and dashes).
+readme = "README.md"
+requires-python = ">=3.14"
 dynamic = ["version"]  # WHY: version managed by build system (setuptools_scm).
+
+# CUSTOM: Project metadata.
+authors = [{ name = "Denise Case", email = "dcase@nwmissouri.edu" }]
 description = "Privacy-safe diagnostics, paths, and logging helpers for analytics projects."
 keywords = ["data", "analytics", "logging", "diagnostics", "education", "toolkit"]
 license-files = ["LICENSE"]
-readme = "README.md"
-requires-python = ">=3.12"
-authors = [{ name = "Denise M. Case" }]
+
+# PyPI classifiers to help with discovery.
 classifiers = [
     "Development Status :: 4 - Beta",
     "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: 3.13",
     "Topic :: Software Development :: Libraries",
     "Topic :: Utilities",
@@ -40,8 +51,8 @@ dev = [
     "pre-commit>=4.5.1",
     "pytest>=9.0.2",
     "pytest-cov>=7.0.0",
-    "pyright>=1.1.407",
-    "ruff>=0.14.10",
+    "pyright>=1.1.408",
+    "ruff>=0.14.11",
     "twine>=6.2.0",
     "validate-pyproject>=0.24.1",
 ]
@@ -90,7 +101,7 @@ DEP002 = [
 typeCheckingMode = "strict"
 include = ["src"]
 extraPaths = ["src"]
-pythonVersion = "3.12"
+pythonVersion = "3.14"
 reportMissingImports = "warning"
 reportPrivateUsage = "none"
 useLibraryCodeForTypes = false
@@ -118,7 +129,7 @@ exclude = [
 fix = true
 line-length = 100
 preview = false
-target-version = "py312"
+target-version = "py313" # WHY: Match latest supported Python version.
 unsafe-fixes = false
 
 [tool.ruff.format]

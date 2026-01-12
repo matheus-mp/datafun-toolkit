@@ -13,22 +13,32 @@ type: software
 
 title: "Data Analytics Fundamentals Toolkit"
 version: "0.9.0"
-date-released: "2026-01"
+date-released: "2026-01-11"
 
 authors:
   - family-names: Case
     given-names: Denise M.
     orcid: "https://orcid.org/0000-0001-6165-7389"
+    affiliation: "Northwest Missouri State University, School of Computer Science and Information Systems, Maryville, MO, USA"
 
 repository-code: "https://github.com/denisecase/datafun-toolkit"
 url: "https://github.com/denisecase/datafun-toolkit"
 license: MIT
+
+abstract: >
+  The Data Analytics Fundamentals Toolkit is a lightweight Python package
+  providing privacy-safe diagnostics, path utilities, and standardized
+  logging helpers for analytics projects.
+  It is designed to support graduate courses in data analytics and related fields
+  while modeling professional Python practices
+  in code quality, packaging, publication, and documentation.
 
 keywords:
   # identity
   - data analytics
   - python
   - python-toolkit
+  - analytics-toolkit
   - developer-tools
   - logging
 
@@ -36,8 +46,7 @@ keywords:
   - education
   - teaching
   - learning
-  - students
-  - instructors
+  - practitioners
   - computer-science-education
   - data-analytics-education
 
@@ -46,24 +55,19 @@ keywords:
   - src-layout
   - ci-cd
   - github-actions
-  - reproducible-research
+  - reproducible-workflows
   - software-quality
   - professional-practice
 
-  # tooling signals
+  # tools and ecosystem
+  - python
+  - git
+  - github
+  - pre-commit
   - open-source
   - uv
   - ruff
   - mkdocs
   - mike
-  - git
-
-abstract: >
-  The Data Analytics Fundamentals Toolkit is a lightweight Python package
-  providing privacy-safe diagnostics, path utilities, and standardized
-  logging helpers for analytics projects.
-  It is designed to support data analytics courses
-  while modeling professional Python practices
-  in code quality, packaging, publication, and documentation.
 
 message: "If using this project, please cite it as described in this file."

@@ -1,5 +1,4 @@
-"""
-diagnostics.py - Diagnostic environment detection functions.
+"""diagnostics.py - Diagnostic environment detection functions.
 
 Provides privacy-safe helpers for gathering environment information
 for logging and debugging purposes.

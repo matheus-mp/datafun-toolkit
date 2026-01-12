@@ -12,6 +12,7 @@ framework_url = "https://github.com/structural-explainability"
 framework_note = "Provides definitions and conventions for SE_MANIFEST semantics."
 description = "Declarative claim of repository intent, scope, and role."
 purpose = "To make explicit the boundaries, responsibilities, and expectations of this repository relative to others."
+keywords_note = "Keywords live only in CITATION.cff (canonical)."
 
 [repo]
 name = "datafun-toolkit"
@@ -26,8 +27,20 @@ space = "Data Analytics"
 role = "post-secondary-education"
 
 [depends]
-required = []
-optional = []
+# WHY: Required tools support local development, execution, and versioned CI-based releases.
+required = [
+  "python>=3.14",
+  "uv",
+  "git",
+]
+# WHY: Optional tools are not required to use or run the repository.
+optional = [
+  "mkdocs",
+  "ruff",
+  "pyright",
+  "pytest",
+  "lychee",
+]
 
 [provides]
 artifacts = [

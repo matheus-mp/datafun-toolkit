@@ -1,5 +1,4 @@
-"""
-datafun_toolkit - Core utilities for data analytics projects.
+"""datafun_toolkit - Core utilities for data analytics projects.
 
 This package (datafun-toolkit) provides reusable, privacy-safe helpers for:
 - project path discovery

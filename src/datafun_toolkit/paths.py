@@ -1,5 +1,4 @@
-"""
-paths.py - Path utilities for DataFun projects.
+"""paths.py - Path utilities for DataFun projects.
 
 Provides functions to find project roots and sanitize paths.
 
@@ -18,8 +17,7 @@ __all__ = ["find_project_root", "safe_relpath_str"]
 
 
 def find_project_root(start: Path | None = None) -> Path:
-    """
-    Return the project root directory.
+    """Return the project root directory.
 
     Arguments:
       start: Optional starting directory (defaults to cwd)
@@ -47,8 +45,7 @@ def find_project_root(start: Path | None = None) -> Path:
 
 
 def safe_relpath_str(path: Path, root: Path) -> str:
-    """
-    Return a sanitized, repo-relative string of the path when possible.
+    """Return a sanitized, repo-relative string of the path when possible.
 
     Arguments:
       path: The path to sanitize.

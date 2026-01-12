@@ -60,9 +60,11 @@ One-time setup:
 
 ```shell
 uv self update
-uv python pin 3.12
+uv python pin 3.14
 uv sync --extra dev --extra docs --upgrade
+
 uvx pre-commit install
+git add -A
 uvx pre-commit run --all-files
 ```
 
@@ -75,23 +77,23 @@ git pull
 After working, run checks:
 
 ```shell
-git add -A
 uv run ruff format .
 uv run ruff check . --fix
 uv run pytest --cov=src --cov-report=term-missing
+
 uv run deptry .
 uv run bandit -c pyproject.toml -r src
 uv run validate-pyproject pyproject.toml
 ```
 
-Build and serve docs:
+Build and serve docs (hit **CTRL+c** in the VS Code terminal to quit serving):
 
 ```shell
 uv run mkdocs build --strict
 uv run mkdocs serve
 ```
 
-Save progress:
+Save progress frequently (some tools may make changes; you may need to **re-run git `add` and `commit`** to ensure everything gets committed before pushing):
 
 ```shell
 git add -A

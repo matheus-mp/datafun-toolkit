@@ -18,7 +18,7 @@ Example output (sanitized):
     === RUN START ===
     project=datafun-project
     repo_dir=datafun-project
-    python=3.12.1
+    python=3.14.1
     os=Windows 11
     shell=pwsh
     cwd=src

@@ -1,5 +1,4 @@
-"""
-logger.py — Logging utilities for DataFun projects.
+"""logger.py - Logging utilities for DataFun projects.
 
 Provides a standardized logger setup and a privacy-safe run header.
 
